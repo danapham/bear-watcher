@@ -28,7 +28,6 @@ const addBearObj = (array) => {
 const submitForm = () => {
   $("#formSubmit").click(() => {
     addBearObj(trackedBears);
-    console.log(trackedBears);
     createCards(trackedBears);
   });
 };
