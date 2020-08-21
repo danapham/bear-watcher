@@ -1,4 +1,4 @@
-import { createCards } from './river.js';
+import { createCards } from "./river.js";
 
 const trackedBears = [];
 
@@ -14,21 +14,23 @@ const createForm = () => {
     <input type="url" class="form-control" id="bearImageInput" placeholder="URL">
   </div>
   <input type="button" class="btn btn-primary" id="formSubmit">Submit</input>
-</form>`)
-}
+</form>`);
+};
 
 const addBearObj = (array) => {
-  const bearObj = {};
+  let bearObj = {};
 
-  bearObj.name = $("#bearNameInput").val()
-  bearObj.url = $("#bearImageInput").val()
-  array.push(bearObj)
-}
+  bearObj.name = $("#bearNameInput").val();
+  bearObj.url = $("#bearImageInput").val();
+  array.push(bearObj);
+};
 
 const submitForm = () => {
   $("#formSubmit").click(() => {
     addBearObj(trackedBears);
+    console.log(trackedBears);
     createCards(trackedBears);
-})}
+  });
+};
 
 export { createForm, submitForm };
