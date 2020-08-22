@@ -3,7 +3,13 @@ import { createCards } from "./river.js";
 const trackedBears = [];
 
 const updateTrackedBears = (id, time) => {
-  trackedBears[id].triedTimes = time;
+
+  if (trackedBears[id].triedTimes) {
+    trackedBears[id].triedTimes.push(time);
+  } else {  
+    trackedBears[id].triedTimes = [];
+    trackedBears[id].triedTimes.push(time);
+  }
 }
 
 const createForm = () => {
