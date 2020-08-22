@@ -4,7 +4,6 @@ const createCards = (array) => {
   $("#bearCards").html("");
 
   array.forEach((bear, id) => {
-
     $("#bearCards").append(`
       <div class="card" style="width: 18rem;">
         <img class="card-img-top" src="${bear.url}" alt="Image of tracked bear">
@@ -13,7 +12,7 @@ const createCards = (array) => {
           </div>
           <div id="timestamp-${id}"></div>
           <div>
-            <span>
+            <span id="clickTrying">
             <i class="fas fa-exclamation" id="clickTrying-${id}"></i>
             </span>
             <span id="clickCaught">
@@ -21,23 +20,22 @@ const createCards = (array) => {
             </span>
           </div>
       </div>`);
-      handleTryingClick(id);
+    handleTryingClick(id);
   });
 };
 
 const recordTime = (id) => {
   const time = Date();
 
-  $(`#timestamp-${id}`).html(`Attempt on ${time} recorded!`);
+  $(`#timestamp-${id}`).append(`Attempt on ${time} recorded!`);
 
-  updateTrackedBears(id, time);
-}
+  // updateTrackedBears(id, time);
+};
 
 const handleTryingClick = (id) => {
   $(`#clickTrying-${id}`).click(() => {
-    recordTime(id);
-  }
-  )
-}
+    recordTime(id)
+  })
+};
 
 export { createCards, handleTryingClick };
