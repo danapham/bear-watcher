@@ -2,6 +2,16 @@ import { createCards } from "./river.js";
 
 const trackedBears = [];
 
+const updateTrackedBears = (id, time) => {
+
+  if (trackedBears[id].triedTimes) {
+    trackedBears[id].triedTimes.push(time);
+  } else {  
+    trackedBears[id].triedTimes = [];
+    trackedBears[id].triedTimes.push(time);
+  }
+}
+
 const createForm = () => {
   $("#bearForm").html(`
   <form>
@@ -32,4 +42,4 @@ const submitForm = () => {
   });
 };
 
-export { createForm, submitForm };
+export { createForm, submitForm, updateTrackedBears };
